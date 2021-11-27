@@ -1,0 +1,49 @@
+html{
+  font-family:sans-serif;
+  background-image: url("./imagenes/fondoLogin.jpg");
+  background-size: 100%;
+  /*background-color: #0B99CC;*/
+  text-align: center;
+  color: white;
+}
+#logo{
+  width: 50%;
+  height: 50%;
+  margin-left: 25%;
+}
+.bienvenida{
+  color: #393939;
+   font-size: 40px;
+   padding: 12px;
+}
+.boton1{
+   background-color: green;
+   border: 3px solid #4C4C4C ;
+   border-radius: 8px 8px 8px 8px;
+   font-size: 28px;
+   padding: 12px;
+   color: white;
+}
+.boton2{
+   background-color: red;
+   border: 3px solid #4C4C4C ;
+   border-radius: 8px 8px 8px 8px;
+   color: #393939;
+   font-size: 28px;
+   padding: 12px;
+   color: #ffffff;
+}
+label{
+   font-size: 30px;
+   padding: 12px;
+}
+.in{
+  border-style:  outset;
+  border-width: 3px;
+  border-color: blue;
+  color:white;
+  font-weight:bolder;
+  font-size: 28px;
+  background-color:gray;
+  width: 500px;
+}

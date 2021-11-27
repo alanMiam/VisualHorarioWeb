@@ -1,0 +1,79 @@
+html{
+  font-family:sans-serif;
+  background-image: url("./imagenes/fondoChido.jpg");
+  background-size: 100%;
+  /*background-color: #0B99CC;*/
+  text-align: center;
+}
+aside{
+  float:right;
+  background-color: #DFC314;
+  color: white;
+  overflow: hidden;
+
+  width: 20%;
+  font-size:22px;
+  font-family:sans-serif;
+  font-weight:bold;
+  text-align:left;
+  text-indent:30px;
+  margin-right: 55px;
+}
+#logo{
+  width: 50%;
+  height: 50%;
+  margin-left: 25%;
+}
+article{
+    float: left;
+    color: white;
+    overflow: hidden;
+    margin-left: 3%;
+    font-size: 30px;
+    height: 100%;
+    width: 70%;
+}
+section{
+height: 100%;
+}
+
+.boton1{
+   background: #FF5733  ;
+   border: 3px solid #4C4C4C ;
+   border-radius: 8px 8px 8px 8px;
+   color: #393939;
+   font-size: 20px;
+   padding: 12px;
+   color: #ffffff;
+}
+.boton2{
+   background: #FF5733  ;
+   border: 3px solid #4C4C4C ;
+   border-radius: 8px 8px 8px 8px;
+   color: #393939;
+   font-size: 20px;
+   padding: 12px;
+   color: #ffffff;
+}
+#enlaceDesarrollo{
+  text-align: center;
+}
+#centro{
+  text-align: left;
+}
+#Lema{
+  font-size:30px;
+  font-family:sans-serif;
+  font-weight:bold;
+  text-align:left;
+  text-indent:30px;
+}
+.ini {
+border-style:  outset;
+  border-width: 3px;
+  border-color: blue;
+  color:white;
+  font-weight:bolder;
+  font-size: 28px;
+  background-color:gray;
+  }
