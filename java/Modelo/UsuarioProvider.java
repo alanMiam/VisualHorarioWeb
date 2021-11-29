@@ -7,8 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Seguridad.Encriptacion;
 public class UsuarioProvider {    
     Statement stmt;
+    Encriptacion enc = new Encriptacion();
+    
     public ArrayList<Usuario> ObtenerUsuario(){
         ArrayList<Usuario> arrayUsuario = new ArrayList();
         Modelo.Conexion a = new Modelo.Conexion();
@@ -25,6 +28,9 @@ public class UsuarioProvider {
                 Usuario usuario = new Usuario();
                 usuario.setIdUsuario(rs.getInt(1));
                 usuario.setNombreUsuario(rs.getString(2));
+                
+                //Obtiene la contraseña y la decodifica
+                //usuario.setPassUsuario(enc.decode(rs.getString(3)));
                 usuario.setPassUsuario(rs.getString(3));
                 usuario.setCorreoUsuario(rs.getString(4));
                 usuario.setRolUsuario(rs.getInt(5));          
@@ -63,6 +69,9 @@ public class UsuarioProvider {
                 
                 us.setIdUsuario(rs.getInt(1));//no
                 us.setNombreUsuario(rs.getString(2));
+                
+                //DECODIFICA LA CONTRASEÑA
+                //us.setPassUsuario(enc.decode(rs.getString(3)));
                 us.setPassUsuario(rs.getString(3));
                 us.setCorreoUsuario(rs.getString(4));
                 us.setRolUsuario(rs.getInt(5));//no          
@@ -94,6 +103,9 @@ public class UsuarioProvider {
                 
                 us.setIdUsuario(rs.getInt(1));//no
                 us.setNombreUsuario(rs.getString(2));
+                
+                //DECODIFICA LA CONTRASEÑA
+                //us.setPassUsuario(enc.decode(rs.getString(3)));
                 us.setPassUsuario(rs.getString(3));
                 us.setCorreoUsuario(rs.getString(4));
                 us.setRolUsuario(rs.getInt(5));//no          
@@ -117,6 +129,9 @@ public class UsuarioProvider {
         
         try{
             nom = usuario.getNombreUsuario();
+            
+            //codifica la contraseña
+            //cont=enc.code(usuario.getPassUsuario());
             cont=usuario.getPassUsuario();
             corr=usuario.getCorreoUsuario();
             rol=usuario.getRolUsuario();
@@ -148,6 +163,10 @@ public class UsuarioProvider {
         stmt=con.createStatement();
     try{
         nom = usuario.getNombreUsuario();
+        
+        //CODIFICA LA CONTRASEÑA PARA SER ENVIADA A LA BASE DE DATOS 
+        cont=enc.code(usuario.getPassUsuario());
+        
         cont=usuario.getPassUsuario();
         rol=usuario.getRolUsuario();
         sql="UPDATE `usuario` SET nombreUsuario='"+nom+"', passUsuario='"+cont+"', rolUsuario='"+rol+"' where idUsuario="+ID;    

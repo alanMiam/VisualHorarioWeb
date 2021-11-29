@@ -6,7 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import Seguridad.Encriptacion;
 public class ServletValidarPass extends HttpServlet {
+    Encriptacion enc = new Encriptacion();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -16,11 +18,12 @@ public class ServletValidarPass extends HttpServlet {
         UsuarioProvider up = new UsuarioProvider();
         //nombre pass correo
         String contra = up.ObtenerUsuario234(correo1, 3);
+        String contraDecode = enc.decode(contra);
         String nombre = up.ObtenerUsuario234(correo1, 2);
-        System.out.println(pass+" "+contra);
+        System.out.println(pass+" "+contra+" "+contraDecode);
         int rol;  
         
-        if (pass.equals(contra)) {
+        if (pass.equals(contraDecode)) {
             rol = up.ObtenerUsuario15(correo1, 5);
             if (rol==1) {
                 try (PrintWriter out = response.getWriter()) {

@@ -10,7 +10,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import Seguridad.Encriptacion;
+
 public class ServletActualizacionUsuario extends HttpServlet {
+    Encriptacion enc = new Encriptacion();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
@@ -20,6 +23,9 @@ public class ServletActualizacionUsuario extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String correo = request.getParameter("correo");
         String contra = request.getParameter("contra");
+        
+        String contraCode=enc.code(contra);
+        
         String rol = request.getParameter("rol");
         int ROL = Integer.parseInt(rol);
         Usuario us = new Usuario();
@@ -27,7 +33,7 @@ public class ServletActualizacionUsuario extends HttpServlet {
         
         us.setNombreUsuario(nombre);
         //us.setCorreoUsuario(correo);
-        us.setPassUsuario(contra);
+        us.setPassUsuario(contraCode);
         us.setRolUsuario(ROL);
         
         UsuarioProvider up = new UsuarioProvider();
